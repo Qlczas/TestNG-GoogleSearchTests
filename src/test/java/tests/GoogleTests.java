@@ -19,8 +19,4 @@ public class GoogleTests extends BaseTests {
         ResultsPage resultsPage = new ResultsPage(driver.get());
         resultsPage.openUrlFromSearchResults(URL_TO_OPEN);
     }
-
-    //TODO: Following Test Cases should be developed
-    //@Test (priority = 0, description = "As a user, I would like to successfully apply for given position")
-    //See README.md for more tests to be developed
 }
