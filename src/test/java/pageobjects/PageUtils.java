@@ -22,7 +22,7 @@ public class PageUtils {
     }
 
     protected void logText(String givenTextString) {
-        //TODO implement any other logger instead of sout
+        //TODO implement any other logger instead of SOUT
         System.out.println(givenTextString);
     }
 
@@ -56,16 +56,15 @@ public class PageUtils {
         Assert.assertEquals(currentUrl, givenUrl);
     }
 
-    protected void findAllElementsAndClickByGivenValue(By elementLocator, String valueToClick) {
+    protected void findAllElementsAndClickByGivenValue(By elementLocator, String urlToOpen) {
         List<WebElement> foundElements = driver.findElements(elementLocator);
-
-        for (WebElement links: foundElements)
-        {
-            if(links.getText().contains("valueToSelect") ){
-                links.click();
-                logText("# Clicked on element with value" + valueToClick);
+        for (WebElement link: foundElements) {
+            if (link.getAttribute("href").contains(urlToOpen)) {
+                link.click();
+                logText("# Clicked on element with value: " + urlToOpen);
+                break;
             }
-            else{
+            else {
                 Assert.fail("#Error - Value not found!");
                 break;
             }
